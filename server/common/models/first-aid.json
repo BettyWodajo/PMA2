@@ -1,0 +1,30 @@
+{
+  "name": "first_aid",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "f_id": {
+      "type": "string",
+      "required": true
+    },
+    "symptom": {
+      "type": "string",
+      "required": true
+    },
+    "ex_disease": {
+      "type": "string",
+      "required": true
+    },
+    "solution": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
