@@ -12,6 +12,9 @@
 
     </v-toolbar-items>
   </v-toolbar>
+  <div class="container">
+    <router-view/>
+  </div>
 </v-app>
 </template>
 <script>

@@ -14,37 +14,38 @@ export default new Router({
     {
       path: '/',
       name: 'index',
-      component: index
-    },
-    {
-      path: '/experts',
-      name: 'experts',
-      component:experts
-    },
-    {
-      path: '/PMA_INFO',
-      name: 'PMA_INFO',
-      component:PMA_INFO
-    },
-    {
-      path: '/first_aid',
-      name: 'first_aid',
-      component:first_aid
-    },
-    {
-      path: '/request',
-      name: 'request',
-      component:request
-    },
-    {
-      path: '/blogs',
-      name: 'blogs',
-      component:blogs
-    },
-    {
-      path: '/medical',
-      name: 'medical',
-      component:medical
+      component: index,
+      children:[
+          {path: '/experts',
+          component:experts},
+          {
+            path: '/PMA_INFO',
+            name: 'PMA_INFO',
+            component:PMA_INFO
+          },
+          {
+            path: '/first_aid',
+            name: 'first_aid',
+            component:first_aid
+          },
+          {
+            path: '/request',
+            name: 'request',
+            component:request
+          },
+          {
+            path: '/blogs',
+            name: 'blogs',
+            component:blogs
+          },
+          {
+            path: '/medical',
+            name: 'medical',
+            component:medical
+          }
+
+
+      ]
     }
 
 
