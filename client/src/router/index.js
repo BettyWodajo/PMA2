@@ -1,21 +1,20 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import test from '@/components/test'
-import main from '@/components/main'
 import experts from '@/components/experts'
 import PMA_INFO from '@/components/PMA_INFO'
 import first_aid from '@/components/first_aid'
-import medical_library from '@/components/medical_library'
-
-
+import index from '@/components/index'
+import request from '@/components/request'
+import blogs from '@/components/blogs'
+import medical from '@/components/medical'
 Vue.use(Router)
 
 export default new Router({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: main
+      name: 'index',
+      component: index
     },
     {
       path: '/experts',
@@ -33,10 +32,21 @@ export default new Router({
       component:first_aid
     },
     {
-      path: '/medical_library',
-      name: 'medical_library',
-      component:medical_library
+      path: '/request',
+      name: 'request',
+      component:request
+    },
+    {
+      path: '/blogs',
+      name: 'blogs',
+      component:blogs
+    },
+    {
+      path: '/medical',
+      name: 'medical',
+      component:medical
     }
+
 
   ]
 })

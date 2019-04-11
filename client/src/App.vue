@@ -2,11 +2,11 @@
   <div id="app">
     <router-view/>
   </div>
+
 </template>
 
 <script>
-import main from './components/main';
-import medical_library from './components/medical_library'
+import index from './components/index';
 export default {
   name: 'App'
 }
