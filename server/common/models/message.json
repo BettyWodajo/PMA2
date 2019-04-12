@@ -1,25 +1,29 @@
 {
-  "name": "disease",
+  "name": "message",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "mId": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "senderId": {
       "type": "string",
       "required": true
     },
-    "symptom": {
+    "reciverId": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "object",
+    "textMessage": {
+      "type": "string",
+      "required": true
+    },
+    "mediaMessage": {
+      "type": "string",
       "required": true
     }
   },

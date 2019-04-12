@@ -1,25 +1,29 @@
 {
-  "name": "disease",
+  "name": "user",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "userId": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "fullname": {
       "type": "string",
       "required": true
     },
-    "symptom": {
+    "email": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "object",
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "media": {
+      "type": "string",
       "required": true
     }
   },

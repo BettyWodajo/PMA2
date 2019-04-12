@@ -35,12 +35,48 @@
     "dataSource": "db",
     "public": false
   },
-  "disease": {
-    "dataSource": "db",
+  "role": {
+    "dataSource": "mongod",
     "public": true
   },
-  "first_aid": {
-    "dataSource": "db",
+  "permission": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "rolePermission": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "user": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "expert": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "disease": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "firstAid": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "request": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "blog": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "rate": {
+    "dataSource": "mongod",
+    "public": true
+  },
+  "message": {
+    "dataSource": "mongod",
     "public": true
   }
 }

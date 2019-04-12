@@ -1,12 +1,12 @@
 {
-  "name": "disease",
+  "name": "blog",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "bId": {
       "type": "string",
       "required": true
     },
@@ -14,11 +14,7 @@
       "type": "string",
       "required": true
     },
-    "symptom": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
+    "Content": {
       "type": "object",
       "required": true
     }

@@ -1,25 +1,25 @@
 {
-  "name": "disease",
+  "name": "expert",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "expertId": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "address": {
       "type": "string",
       "required": true
     },
-    "symptom": {
+    "jobLocation": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "object",
+    "specialization": {
+      "type": "string",
       "required": true
     }
   },

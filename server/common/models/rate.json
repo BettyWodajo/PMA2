@@ -1,26 +1,21 @@
 {
-  "name": "disease",
+  "name": "rate",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "rateId": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "expertId": {
       "type": "string",
       "required": true
     },
-    "symptom": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "object",
-      "required": true
+    "value": {
+      "type": "number"
     }
   },
   "validations": [],

@@ -1,12 +1,16 @@
 {
-  "name": "first_aid",
+  "name": "firstAid",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "f_id": {
+    "fId": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
       "type": "string",
       "required": true
     },
@@ -14,7 +18,7 @@
       "type": "string",
       "required": true
     },
-    "ex_disease": {
+    "exDisease": {
       "type": "string",
       "required": true
     },

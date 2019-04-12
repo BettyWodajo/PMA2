@@ -1,6 +1,6 @@
 <template>
   <v-app>
-  <v-toolbar color="grey">
+  <v-toolbar color="primary">
     <v-toolbar-title> PMA</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">

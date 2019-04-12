@@ -1,11 +1,15 @@
 {
   "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongod": {
     "host": "localhost",
     "port": 27017,
     "url": "",
     "database": "PMA",
     "password": "",
-    "name": "db",
+    "name": "mongod",
     "user": "",
     "connector": "mongodb"
   }

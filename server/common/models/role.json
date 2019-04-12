@@ -1,12 +1,12 @@
 {
-  "name": "disease",
+  "name": "role",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "id": {
       "type": "string",
       "required": true
     },
@@ -14,12 +14,12 @@
       "type": "string",
       "required": true
     },
-    "symptom": {
-      "type": "string",
+    "createdDate": {
+      "type": "date",
       "required": true
     },
-    "description": {
-      "type": "object",
+    "updatedDate": {
+      "type": "date",
       "required": true
     }
   },

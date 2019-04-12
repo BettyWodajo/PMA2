@@ -1,25 +1,29 @@
 {
-  "name": "disease",
+  "name": "rolePermission",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "id": {
       "type": "string",
       "required": true
     },
-    "name": {
+    "roleId": {
       "type": "string",
       "required": true
     },
-    "symptom": {
+    "permissionId": {
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "object",
+    "createdDate": {
+      "type": "date",
+      "required": true
+    },
+    "updatedDate": {
+      "type": "date",
       "required": true
     }
   },

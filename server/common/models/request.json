@@ -1,24 +1,16 @@
 {
-  "name": "disease",
+  "name": "request",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "dId": {
+    "rId": {
       "type": "string",
       "required": true
     },
-    "name": {
-      "type": "string",
-      "required": true
-    },
-    "symptom": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
+    "rBody": {
       "type": "object",
       "required": true
     }
