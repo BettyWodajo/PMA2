@@ -21,12 +21,20 @@ export default new Router({
           {
             path: '/PMA_INFO',
             name: 'PMA_INFO',
-            component:PMA_INFO
-          },
-          {
-            path: '/first_aid',
-            name: 'first_aid',
-            component:first_aid
+            component:PMA_INFO,
+            children:[
+              {
+                path: '/first_aid',
+                name: 'first_aid',
+                component:first_aid
+              },
+              {
+                path: '/medical',
+                name: 'medical',
+                component:medical
+              }
+            ]
+
           },
           {
             path: '/request',
@@ -37,11 +45,6 @@ export default new Router({
             path: '/blogs',
             name: 'blogs',
             component:blogs
-          },
-          {
-            path: '/medical',
-            name: 'medical',
-            component:medical
           }
 
 

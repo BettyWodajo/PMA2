@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-toolbar flat color="white">
-      <v-toolbar-title>My CRUD</v-toolbar-title>
+      <v-toolbar-title>Experts</v-toolbar-title>
       <v-divider
         class="mx-2"
         inset
@@ -10,7 +10,7 @@
       <v-spacer></v-spacer>
       <v-dialog v-model="dialog" max-width="500px">
         <template v-slot:activator="{ on }">
-          <v-btn color="primary" dark class="mb-2" v-on="on">New Item</v-btn>
+          <v-btn color="primary" dark class="mb-2" v-on="on">New Expert</v-btn>
         </template>
         <v-card>
           <v-card-title>
@@ -86,15 +86,15 @@
       dialog: false,
       headers: [
         {
-          text: 'Dessert (100g serving)',
+          text: 'Full Name',
           align: 'left',
           sortable: false,
           value: 'name'
         },
-        { text: 'Calories', value: 'calories' },
-        { text: 'Fat (g)', value: 'fat' },
-        { text: 'Carbs (g)', value: 'carbs' },
-        { text: 'Protein (g)', value: 'protein' },
+        { text: 'Email', value: 'calories' },
+        { text: 'Address', value: 'fat' },
+        { text: 'Specialization', value: 'carbs' },
+        { text: 'Job Location', value: 'protein' },
         { text: 'Actions', value: 'name', sortable: false }
       ],
       desserts: [],
