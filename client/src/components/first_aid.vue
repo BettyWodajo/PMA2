@@ -13,8 +13,8 @@
             <mdb-input size="sm" label="SYMPTOM" icon="pencil" group type="email" validate error="wrong" success="right" v-model="symptom"/>
             <mdb-input size="sm" label="EXPECTED DISEASE" icon="pencil" group type="text" validate error="wrong" success="right" v-model="disease"/>
             <mdb-col>
-            <mdb-input size="sm" label="Step Name" icon="pencil" group type="text" validate error="wrong" success="right" v-model="title"/>
-            <mdb-textarea size="sm" :rows="2" label="SOLUTION" icon="pencil" v-model="desc"/>
+            <mdb-input size="sm" label="Step Name" icon="pencil" group type="text" validate error="wrong" success="right" v-model="first.title"/>
+            <mdb-textarea size="sm" :rows="2" label="SOLUTION" icon="pencil" v-model="first.desc"/>
           </mdb-col>
           </mdb-modal-body>
           <mdb-modal-footer>
@@ -60,7 +60,8 @@ import axios from "axios"
       return {
         showModal: false,
         first:{
-          title:desc
+          title: '',
+          desc: ''
         }
       }
     },
