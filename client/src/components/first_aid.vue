@@ -25,13 +25,31 @@
       </mdb-col>
     </mdb-row>
   </mdb-container>
-  <mdb-card>
-    <mdb-card-body>
-      <mdb-card-title>Basic card</mdb-card-title>
-      <mdb-card-text>Some quick example text to build on the card title and make up the bulk of the card's content.</mdb-card-text>
-      <mdb-btn color="primary">Button</mdb-btn>
-    </mdb-card-body>
-  </mdb-card>
+  <mdbContainer>
+  <div class="row">
+
+                    <!--Grid column-->
+                    <div class="col-lg-4 mb-4">
+                        <!--Featured image-->
+                        <div class="view overlay z-depth-1">
+                            <img src="https://mdbootstrap.com/img/Photos/Others/img (35).jpg" class="img-fluid" alt="Third sample image">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 mb-4" v-for="d in detail">
+                        <h4 class="mb-4"><strong>{{detail.name}}</strong></h4>
+                        <h4 class="mb-4"><strong>{{detail.symptom}}</strong></h4>
+                         <h4 class="mb-4"><strong>{{exDisease.symptom}}</strong></h4>
+                        <p> {{detail.solution}}</p>
+                  
+                        <a class="btn btn-primary">Read more</a>
+                    </div>
+                    <!--Grid column-->
+
+                </div>
+                </mdbContainer>
 </div>
 </template>
 <script>
@@ -61,10 +79,17 @@ import axios from "axios"
         showModal: false,
         first:{
           title: '',
-          desc: ''
+          desc: '',
+          detail:[]
         }
       }
     },
+    mounted(){
+  this.add_first()
+  this.getFirst()
+
+
+  },
 
       methods: {
         add_first: function () {
@@ -75,9 +100,19 @@ import axios from "axios"
                 exDisease: this.disease,
                 solution: this.first
             }
-            axios.post("http://localhost:3000/api/firstAids",data)
-      }
-    }
+            axios.post('http://localhost:3000/api/firstaids',data).then(response =>{
+    console.log(response)
+  }).catch(err => {
+    console.log(err);
+  })
+      },
+      getFrist() {
+        axios.get('http://localhost:3000/api/firstaids').then(response =>{
+    this.detail = response.data
+    response.data.reverse() 
+    console.log(response.data) 
+    })
   }
-
+      }
+  }
 </script>
