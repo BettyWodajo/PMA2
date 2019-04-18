@@ -23,34 +23,23 @@
       </mdb-col>
     </mdb-row>
   </mdb-container>
-  <mdbContainer>
-  <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/img (35).jpg" class="img-fluid" alt="Third sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-7 mb-4">
-                        <!--Excerpt-->
-                        <a href="" class="brown-text"><h6 class="pb-1"><i class="fa fa-camera"></i><strong> Photography</strong></h6></a>
-                        <h4 class="mb-4"><strong>This is title of the news</strong></h4>
-                        <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.</p>
-                        <p>by <a><strong>Jessica Clark</strong></a>, 21/08/2016</p>
-                        <a class="btn btn-primary">Read more</a>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                </mdbContainer>
+  <mdb-container>
+    <mdb-row >
+      <mdb-col col="sm" v-for="d in detail">
+  <mdb-card>
+    <mdb-card-image src="" alt=""></mdb-card-image>
+    <mdb-card-body>
+      <mdb-card-title>{{d.name}}</mdb-card-title>
+      <mdb-card-text>{{d.symptom}}</mdb-card-text>
+      <mdb-card-text>{{d.description.title}}</mdb-card-text>
+      <mdb-card-text>{{d.description.desc}}</mdb-card-text>
+      <mdb-btn color="primary">Edit</mdb-btn>
+      <mdb-btn color="danger" @click="deleteDisease(d.id)">Delete</mdb-btn>
+    </mdb-card-body>
+  </mdb-card>
+</mdb-col>
+    </mdb-row>
+  </mdb-container>
 </div>
 </template>
 <script>
@@ -81,8 +70,13 @@ import axios from "axios"
         med:{
           title: '',
           desc: ''
-        }
+        },
+        detail:[]
       }
+    },
+    mounted(){
+      this.getDisease()
+      this.deleteDisease()
     },
 
       methods: {
@@ -95,6 +89,21 @@ import axios from "axios"
                 
             }
             axios.post("http://localhost:3000/api/diseases",data)
+      },
+      getDisease: function () {
+         axios.get('http://localhost:3000/api/diseases').then(response =>{
+    this.detail = response.data
+    response.data.reverse() 
+    console.log(response.data) 
+    })
+
+      },
+      deleteDisease(id){
+      axios.delete('http://localhost:3000/api/diseases/'+id)
+                .then(response => {
+              this.getDisease()
+                });
+                console.log(this.result);
       }
     }
   }

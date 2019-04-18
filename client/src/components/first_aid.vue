@@ -25,32 +25,25 @@
       </mdb-col>
     </mdb-row>
   </mdb-container>
-  <mdbContainer>
-  <div class="row">
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 mb-4">
-                        <!--Featured image-->
-                        <div class="view overlay z-depth-1">
-                            <img src="https://mdbootstrap.com/img/Photos/Others/img (35).jpg" class="img-fluid" alt="Third sample image">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-7 mb-4" v-for="d in detail">
-                        <h4 class="mb-4"><strong>{{detail.name}}</strong></h4>
-                        <h4 class="mb-4"><strong>{{detail.symptom}}</strong></h4>
-                         <h4 class="mb-4"><strong>{{exDisease.symptom}}</strong></h4>
-                        <p> {{detail.solution}}</p>
-                  
-                        <a class="btn btn-primary">Read more</a>
-                    </div>
-                    <!--Grid column-->
-
-                </div>
-                </mdbContainer>
-</div>
+  <mdb-container>
+    <mdb-row >
+      <mdb-col col="sm" v-for="d in detail">
+  <mdb-card>
+    <mdb-card-image src="" alt=""></mdb-card-image>
+    <mdb-card-body>
+      <mdb-card-title>{{d.name}}</mdb-card-title>
+      <mdb-card-text>{{d.symptom}}</mdb-card-text>
+      <mdb-card-text>{{d.exDisease}}</mdb-card-text>
+      <mdb-card-text>{{d.solution.title}}</mdb-card-text>
+      <mdb-card-text>{{d.solution.desc}}</mdb-card-text>
+      <mdb-btn color="primary">Edit</mdb-btn>
+      <mdb-btn color="danger">Delete</mdb-btn>
+    </mdb-card-body>
+  </mdb-card>
+</mdb-col>
+    </mdb-row>
+  </mdb-container>
+  </div>
 </template>
 <script>
 import axios from "axios"
@@ -72,20 +65,26 @@ import axios from "axios"
       mdbModal,
       mdbModalHeader,
       mdbModalBody,
-      mdbModalFooter
+      mdbModalFooter,
+      mdbContainer
     },
     data() {
       return {
         showModal: false,
         first:{
           title: '',
-          desc: '',
-          detail:[]
+          desc: ''
+        },
+        detail:[],
+        firstAid: {
+          name:'',
+          symptom: '',
+          disease: '',
         }
       }
     },
     mounted(){
-  this.add_first()
+  // this.add_first()
   this.getFirst()
 
 
@@ -95,9 +94,9 @@ import axios from "axios"
         add_first: function () {
         let data = {
                 fId:"f123",
-                name: this.name,
-                symptom: this.symptom,
-                exDisease: this.disease,
+                name: this.firstAid.name,
+                symptom: this.firstAid.symptom,
+                exDisease: this.firstAid.disease,
                 solution: this.first
             }
             axios.post('http://localhost:3000/api/firstaids',data).then(response =>{
@@ -106,7 +105,7 @@ import axios from "axios"
     console.log(err);
   })
       },
-      getFrist() {
+      getFirst: function() {
         axios.get('http://localhost:3000/api/firstaids').then(response =>{
     this.detail = response.data
     response.data.reverse() 

@@ -21,19 +21,19 @@
             <v-container grid-list-md>
               <v-layout wrap>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.name" label="Dessert name"></v-text-field>
+                  <v-text-field v-model="editedItem.name" label="full name"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.calories" label="Calories"></v-text-field>
+                  <v-text-field v-model="editedItem.calories" label="Email"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.fat" label="Fat (g)"></v-text-field>
+                  <v-text-field v-model="editedItem.fat" label="Address"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.carbs" label="Carbs (g)"></v-text-field>
+                  <v-text-field v-model="editedItem.carbs" label="Specialization"></v-text-field>
                 </v-flex>
                 <v-flex xs12 sm6 md4>
-                  <v-text-field v-model="editedItem.protein" label="Protein (g)"></v-text-field>
+                  <v-text-field v-model="editedItem.protein" label="Job Location"></v-text-field>
                 </v-flex>
               </v-layout>
             </v-container>
@@ -97,14 +97,15 @@
         { text: 'Job Location', value: 'protein' },
         { text: 'Actions', value: 'name', sortable: false }
       ],
+      expert:[],
       desserts: [],
       editedIndex: -1,
       editedItem: {
         name: '',
-        calories: 0,
-        fat: 0,
-        carbs: 0,
-        protein: 0
+        calories: '',
+        fat: '',
+        carbs: '',
+        protein: ''
       },
       defaultItem: {
         name: '',
@@ -128,10 +129,18 @@
     },
 
     created () {
-      this.initialize()
+      this.getExpert()
     },
 
     methods: {
+       getExpert: function() {
+        axios.get('http://localhost:3000/api/experts').then(response =>{
+    this.detail = response.data
+    response.data.reverse() 
+    console.log(response.data) 
+    })
+  },
+
       initialize () {
         this.desserts = [
           {
