@@ -32,13 +32,13 @@
     <mdb-card-image src="" alt=""></mdb-card-image>
     <mdb-card-body>
       <mdb-card-title>{{d.name}}</mdb-card-title>
-      <mdb-card-text>{{d.symptom}}</mdb-card-text>
-      <mdb-card-text>{{d.exDisease}}</mdb-card-text>
-      <mdb-card-text>{{d.solution.title}}</mdb-card-text>
+      <mdb-card-text><strong>Symptom: </strong>{{d.symptom}}</mdb-card-text>
+      <mdb-card-text><strong> Disease:</strong>{{d.exDisease}}</mdb-card-text>
+      <mdb-card-text><strong>{{d.solution.title}}</strong></mdb-card-text>
       <mdb-card-text>{{d.solution.desc}}</mdb-card-text>
       <mdb-btn color="primary">Edit</mdb-btn>
-      <mdb-btn color="danger">Delete</mdb-btn>
-    </mdb-card-body>
+      <mdb-btn color="danger" @click="deleteFirst(d.id)">Delete</mdb-btn>
+    </mdb-card-body>  
   </mdb-card>
 </mdb-col>
     </mdb-row>
@@ -75,12 +75,7 @@ import axios from "axios"
           title: '',
           desc: ''
         },
-        detail:[],
-        firstAid: {
-          name:'',
-          symptom: '',
-          disease: '',
-        }
+        detail:[]
       }
     },
     mounted(){
@@ -94,9 +89,9 @@ import axios from "axios"
         add_first: function () {
         let data = {
                 fId:"f123",
-                name: this.firstAid.name,
-                symptom: this.firstAid.symptom,
-                exDisease: this.firstAid.disease,
+                name: this.name,
+                symptom: this.symptom,
+                exDisease: this.disease,
                 solution: this.first
             }
             axios.post('http://localhost:3000/api/firstaids',data).then(response =>{
@@ -111,7 +106,14 @@ import axios from "axios"
     response.data.reverse() 
     console.log(response.data) 
     })
-  }
+  },
+  deleteFirst(id){
+      axios.delete('http://localhost:3000/api/firstaids/'+id)
+                .then(response => {
+              this.getFirst()
+                });
+                console.log(this.result);
+      }
       }
   }
 </script>

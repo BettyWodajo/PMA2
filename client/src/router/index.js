@@ -7,12 +7,18 @@ import index from '@/components/index'
 import request from '@/components/request'
 import blogs from '@/components/blogs'
 import medical from '@/components/medical'
+import login from '@/components/login'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+  {
+    path: '/',
+    name: 'login',
+    component: login,
+  },
     {
-      path: '/',
+      path: '/index',
       name: 'index',
       component: index,
       children:[

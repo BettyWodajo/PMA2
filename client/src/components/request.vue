@@ -4,20 +4,44 @@
     <v-layout row wrap>
       <v-flex d-flex xs12 sm6 md4>
         <v-card color="blue lighten-2" dark>
-          <v-card-title primary class="title">Lorem</v-card-title>
-          <v-card-text>{{ lorem }}</v-card-text>
+          <v-card-title primary class="title">permission request</v-card-title>
+          <v-card-text>Full Name: {{ expert.fName }}</v-card-text>
+          <v-card-text>Email: {{ expert.email }}</v-card-text>
+          <v-card-text>Address: {{ expert.address }}</v-card-text>
+          <v-card-text>Specialization: {{ expert.specialization }}</v-card-text>
+          <v-card-text>Job Location :{{ expert.jobLocation }}</v-card-text>
+          <div>
+    <v-btn color="success">Accept</v-btn>
+    <v-btn color="error">Reject</v-btn>
+  </div>
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 sm6 md4>
-        <v-card color="blue lighten-2" dark>
-          <v-card-title primary class="title">Lorem</v-card-title>
-          <v-card-text>{{ lorem }}</v-card-text>
+         <v-card color="blue lighten-2" dark>
+          <v-card-title primary class="title">permission request</v-card-title>
+          <v-card-text>Full Name: {{ expert.fName }}</v-card-text>
+          <v-card-text>Email: {{ expert.email }}</v-card-text>
+          <v-card-text>Address: {{ expert.address }}</v-card-text>
+          <v-card-text>Specialization: {{ expert.specialization }}</v-card-text>
+          <v-card-text>Job Location :{{ expert.jobLocation }}</v-card-text>
+          <div>
+    <v-btn color="success">Accept</v-btn>
+    <v-btn color="error">Reject</v-btn>
+  </div>
         </v-card>
       </v-flex>
       <v-flex d-flex xs12 sm6 md4>
-        <v-card color="blue lighten-2" dark>
-          <v-card-title primary class="title">Lorem</v-card-title>
-          <v-card-text>{{ lorem }}</v-card-text>
+         <v-card color="blue lighten-2" dark>
+          <v-card-title primary class="title">permission request</v-card-title>
+          <v-card-text>Full Name: {{ expert.fName }}</v-card-text>
+          <v-card-text>Email: {{ expert.email }}</v-card-text>
+          <v-card-text>Address: {{ expert.address }}</v-card-text>
+          <v-card-text>Specialization: {{ expert.specialization }}</v-card-text>
+          <v-card-text>Job Location :{{ expert.jobLocation }}</v-card-text>
+          <div>
+    <v-btn color="success">Accept</v-btn>
+    <v-btn color="error">Reject</v-btn>
+  </div>
         </v-card>
       </v-flex>
     </v-layout>
@@ -28,8 +52,17 @@
 export default{
     name:'request',
 
-    data: () => ({
-        lorem: `Lorem ipsum dolor sit amet, mel at clita quando. Te sit oratio vituperatoribus, nam ad ipsum posidonium mediocritatem, explicari dissentiunt cu mea. Repudiare disputationi vim in, mollis iriure nec cu, alienum argumentum ius ad. Pri eu justo aeque torquatos.`
-      })
+     data(){
+    return {
+      expert:{
+        fName: 'Abebe melese',
+        email: 'abebe@gmail.com',
+       address: 'Addis ababa',
+        specialization: 'cardiac',
+        jobLocation : 'tikur anbessa'
+      },
+     
     }
+  }
+}
 </script>
