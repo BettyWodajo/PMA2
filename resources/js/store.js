@@ -79,7 +79,7 @@ export default new Vuex.Store({
                 )
         },
         getUser({ commit }, payload) {
-            Axios.get('/api/auth/me?token=' + payload.access_token)
+            Axios.post('/api/auth/me?token=' + payload.access_token)
                 .then(
                     (res) => {
                         var data = {

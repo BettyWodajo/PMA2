@@ -32,4 +32,10 @@ class DiseaseController extends Controller
         ]);
         return response(['disease' => 'updated']);
     }
+
+    public function destroy($id)
+    {
+        Disease::find($id)->delete();
+        return response()->json(['disease'=> 'deleted']);
+    }
 }

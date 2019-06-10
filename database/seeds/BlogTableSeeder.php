@@ -17,8 +17,8 @@ class BlogTableSeeder extends Seeder
         $faker = Faker::create();
         Blog::create([
             'header' => $faker->sentence($nbWords = 6, $variableNbWords = true),
-             'content' => $faker->paragraph,
-             'img' => 'img.jpg',
+             'body' => $faker->paragraph,
+             'image' => 'img.jpg',
              'user_id' => 1,
              'created_at' => Carbon::now(),
              'updated_at' => Carbon::now()

@@ -19,6 +19,9 @@
             <v-btn small fab @click="edit(props.item)">
               <v-icon>edit</v-icon>
             </v-btn>
+            <v-btn @click="deleteFirstaid(props.item.id)" small fab>
+              <v-icon>delete</v-icon>
+            </v-btn>
           </td>
         </template>
       </v-data-table>
@@ -188,6 +191,12 @@ export default {
       this.dialog = false;
       this.mode = "Add";
       this.firstAid = this.firstAidTemplate;
+    },
+    deleteFirstaid(id) {
+      this.$store.commit("startLoading", "Removing FirstAid");
+      Axios.delete("/api/firstAid/" + id).then(res => {
+        this.getFirstAids();
+      });
     }
   }
 };

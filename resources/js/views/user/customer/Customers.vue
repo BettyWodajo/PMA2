@@ -40,7 +40,7 @@ export default {
     getCustomers() {
       this.$store.commit('startLoading', 'Fetching customers data');
       Axios.get(
-        "/api/user/customer?token=" + this.$store.state.userData.access_token
+        "/api/customer?token=" + this.$store.state.userData.access_token
       ).then(res => {
         this.users = res.data;
         this.$store.commit('stopLoading');

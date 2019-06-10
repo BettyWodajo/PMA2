@@ -15,17 +15,22 @@ class UserController extends Controller
 
     public function getAdmins()
     {
-        return response()->json(User::where('role', 'admin')-> get());
+        return response()->json(User::where('role', 'admin')->get());
     }
 
     public function getExperts()
     {
-        return response()->json(User::where('role', 'expert')-> get());
+        return response()->json(User::all());
     }
 
     public function getCustomers()
     {
-        return response()->json(User::where('role', 'customer')-> get());
+        return response()->json(User::with('customer')->where('role', 'customer')->get());
+    }
+
+    public function show($id)
+    {
+        return response()->json(User::find($id));
     }
 
     public function users()

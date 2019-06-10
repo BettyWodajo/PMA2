@@ -19,7 +19,7 @@ class FirstAidTableSeeder extends Seeder
         $description = [];
         for($i = 0; $i < 5; $i++) {
             array_push($description, [
-                'name' => $faker->name
+                'name' => $faker->sentence
             ]);
         };
 

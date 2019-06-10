@@ -14,7 +14,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return response()->json(Blog::all());
+        return response()->json(Blog::with(['comments.user', 'user'])->latest()->get());
     }
 
     /**
@@ -25,38 +25,35 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        $imageName = time().'.'. request()->img->getClientOriginalExtension();
-        request()->img->move(public_path('images'), $imageName);
-
         Blog::create([
+            'image' => $request->image,
             'header' => $request->header,
-            'img' => $imageName,
-            'content' => $request->content,
+            'body' => $request->body,
             'user_id' => $request->user_id
         ]);
 
-        return response()->json(['blog' => 'created']);
+        return response(['blog' => 'created']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        return response()->json(Blog::with(['comments.user', 'user'])->find($id));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Blog $blog)
     {
         //
     }
@@ -64,11 +61,12 @@ class BlogController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Blog  $blog
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        Blog::find($id)->delete();
+        return response(["blog" => "deleted"]);
     }
 }

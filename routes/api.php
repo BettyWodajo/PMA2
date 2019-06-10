@@ -32,23 +32,33 @@ Route::group([
 Route::group([
     'middleware' => 'api'
 ], function ($router) {
-    Route::get('/user/admin', 'UserController@getAdmins');
-    Route::get('/user/expert', 'UserController@getExperts');
-    Route::get('/user/customer', 'UserController@getCustomers');
-    Route::get('/users', 'UserController@users');
-    Route::get('/user/activate/{id}', 'UserController@activate');
-    Route::get('/user/deactivate/{id}', 'UserController@deactivate');
+    Route::get('user/{id}', 'UserController@show');
+    Route::get('admin', 'UserController@getAdmins');
+    Route::get('expert', 'UserController@getExperts');
+    Route::get('customer', 'UserController@getCustomers');
+    Route::get('users', 'UserController@users');
+    Route::get('user/activate/{id}', 'UserController@activate');
+    Route::get('user/deactivate/{id}', 'UserController@deactivate');
 
     Route::get('/diseases', 'DiseaseController@all');
     Route::post('/disease', 'DiseaseController@add');
     Route::patch('/disease/{id}', 'DiseaseController@update');
+    Route::delete('/disease/{id}', 'DiseaseController@destroy');
 
     Route::get('/firstAid', 'FirstAidController@index');
     Route::post('/firstAid', 'FirstAidController@store');
     Route::patch('/firstAid/{id}', 'FirstAidController@update');
-
-    Route::get('/experts', 'ExpertController@get');
+    Route::delete('/firstAid/{id}', 'FirstAidController@destroy');
 
     Route::get('/blog', 'BlogController@index');
     Route::post('/blog', 'BlogController@store');
+    Route::get('/blog/{id}', 'BlogController@show');
+    Route::delete('/blog/{id}', 'BlogController@destroy');
+    Route::post('/comment', 'CommentController@store');
+    Route::delete('/comment/{id}', 'CommentController@destroy');
+
+
+    Route::get('/messages/{id}', 'MessageController@messages');
+    Route::get('/conversation/{from}/{to}', 'MessageController@getConversation');
+    Route::post('/message/send', 'MessageController@send');
 });

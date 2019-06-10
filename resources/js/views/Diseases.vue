@@ -19,6 +19,9 @@
             <v-btn small fab @click="edit(props.item)">
               <v-icon>edit</v-icon>
             </v-btn>
+            <v-btn @click="deleteDisease(props.item.id)" small fab>
+              <v-icon>delete</v-icon>
+            </v-btn>
           </td>
         </template>
       </v-data-table>
@@ -178,6 +181,12 @@ export default {
         symptom: "",
         description: [{ name: "" }]
       };
+    },
+    deleteDisease(id) {
+      this.$store.commit("startLoading", "Removing disease");
+      Axios.delete("/api/disease/" + id).then(res => {
+        this.getDiseases();
+      });
     }
   }
 };

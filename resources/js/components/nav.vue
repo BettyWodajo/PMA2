@@ -53,6 +53,14 @@
                 <v-list-tile-title>First aid</v-list-tile-title>
             </v-list-tile-content>
         </v-list-tile>
+        <v-list-tile to="/app/blog">
+            <v-list-tile-action>
+                <v-icon>assignment</v-icon>
+            </v-list-tile-action>
+            <v-list-tile-content>
+                <v-list-tile-title>Blog</v-list-tile-title>
+            </v-list-tile-content>
+        </v-list-tile>
       </v-list>
     </v-navigation-drawer>
 
@@ -83,7 +91,8 @@ export default {
       sideNavLinks: [
         { icon: "people", link: "/app/user", name: "Users" },
         { icon: "person", link: "/app/disease", name: "Diseases" },
-        { icon: "local_hospital", link: "/app/firstAid", name: "First aid"}
+        { icon: "local_hospital", link: "/app/firstAid", name: "First aid"},
+        { icon: "local_hospital", link: "/app/blog", name: "Blog"}
       ],
       title: "PMA"
     };

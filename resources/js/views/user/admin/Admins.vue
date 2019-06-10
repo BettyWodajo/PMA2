@@ -34,7 +34,7 @@ export default {
   methods: {
     getAdmins() {
       Axios.get(
-        "/api/user/admin?token=" + this.$store.state.userData.access_token
+        "/api/admin?token=" + this.$store.state.userData.access_token
       ).then(res => {
         console.log(res.data);
         this.users = res.data;

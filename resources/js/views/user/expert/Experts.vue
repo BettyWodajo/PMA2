@@ -40,7 +40,7 @@ export default {
     getExperts() {
       this.$store.commit('startLoading', 'Fetching experts data');
       Axios.get(
-        "/api/user/expert?token=" + this.$store.state.userData.access_token
+        "/api/expert?token=" + this.$store.state.userData.access_token
       ).then(res => {
         this.users = res.data;
         this.$store.commit('stopLoading');

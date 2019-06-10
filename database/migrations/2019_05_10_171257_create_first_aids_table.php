@@ -16,7 +16,7 @@ class CreateFirstAidsTable extends Migration
         Schema::create('first_aids', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('symptom');
-            $table->string('description');
+            $table->longText('description');
             $table->unsignedInteger('disease_id');
             $table->timestamps();
         });

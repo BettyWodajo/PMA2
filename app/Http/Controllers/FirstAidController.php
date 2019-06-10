@@ -58,6 +58,7 @@ class FirstAidController extends Controller
      */
     public function destroy($id)
     {
-        //
+        FirstAid::find($id)->delete();
+        return response()->json(['firstaid'=> 'deleted']);
     }
 }
